@@ -13,15 +13,28 @@ from .forms import registro_usuario
 def inicio(request):
     return render(request, 'inicio.html')
 
+'''
 def listadoNotas(request):
  notas = Nota.objects.all() 
  contexto= {"notas":notas}
  return render(request, "listado_notas.html",contexto)
+'''
 
+class notasList(ListView):
+    model=Nota
+    #template_name='listado.html'
 
-class notasLista(ListView):
-    model = Nota
-    template_name='listado_notas.html'
+class categoriasList(ListView):
+    model=Categoria
+
+'''
+class vistaNota(DetailView):
+    model=Nota
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+'''
 
 # Vista de búsquedas y resultados
 

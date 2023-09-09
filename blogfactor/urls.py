@@ -24,8 +24,10 @@ urlpatterns = [
     path('', inicio, name='inicio'),
     path('Notas/', include('Notas.urls')),
     
+    
     # Login y logout
     path('login/', login_request, name='login'),
     path('registrarse/', registrarse, name='registrarse'),
     path('cerrar-sesion/', LogoutView.as_view(template_name='logout.html'), name='cerrar-sesion'),
+    
 ]
